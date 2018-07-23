@@ -1,0 +1,18 @@
+h1 {
+  font-size: 80px;
+  font-weight: 900;
+  letter-spacing: -.04em;
+  line-height: 1.15;
+  margin-top: 0;
+  font-weight: bold; }
+
+@font-face {
+  font-family: 'Circular Std Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local("../fonts/circular-font/CircularStd-Medium"), url("../fonts/circular-font/CircularStd-Medium.woff") format("woff"); }
+
+body {
+  font-family: 'Circular Std Black'; }
+
+/*# sourceMappingURL=style.css.map */
