@@ -1,1 +1,1 @@
-# spotify-stats
+# Social Dashboard
