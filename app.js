@@ -1,18 +1,27 @@
+require('dotenv').config();
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
+const session = require('express-session');
+const passport = require('passport');
 
-var loginRouter = require('./routes/login');
-var usersRouter = require('./routes/users');
+require('./configs/db.config');
+require('./configs/passport.config').setup(passport);
+
+const loginRouter = require('./routes/login');
+const homeRouter = require('./routes/home');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -24,11 +33,32 @@ app.use(sassMiddleware({
   indentedSyntax: false, // true = .sass and false = .scss
   sourceMap: true
 }));
-app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/users', usersRouter);
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false,
+    httpOnly: true,
+    maxAge: 60 * 60 * 24 * 1000
+  }
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+app.use((req, res, next) => {
+  res.locals.session = req.user;
+  next();
+})
+
 app.use('/login', loginRouter);
+app.use('/home', homeRouter);
 app.use('/', function(req, res) {
   res.redirect('/login');
 });

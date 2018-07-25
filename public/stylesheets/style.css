@@ -6,6 +6,17 @@ h1 {
   margin-top: 0;
   font-weight: bold; }
 
+.background-class {
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: url("../../images/backgroundSpotify_0001.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between; }
+
 @font-face {
   font-family: 'Circular Std Black';
   font-style: normal;
@@ -13,6 +24,6 @@ h1 {
   src: local("../fonts/circular-font/CircularStd-Medium"), url("../fonts/circular-font/CircularStd-Medium.woff") format("woff"); }
 
 body {
-  font-family: 'Circular Std Black'; }
+  font-family: 'Circular Std Black' !important; }
 
 /*# sourceMappingURL=style.css.map */
