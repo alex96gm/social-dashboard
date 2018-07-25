@@ -1,0 +1,62 @@
+.navbar{
+    height: 75px;
+    background-color: black;
+}
+.logo-navbar{
+    width: 145px;
+    margin-left: 100px;
+}
+
+
+.user-navbar{   
+    display: flex;
+    justify-content: space-between;
+    padding-right: 100px;
+    position: relative;
+    .user-navbar-url{
+        display: flex;
+        justify-content: space-between;
+        text-decoration:none;
+        cursor: pointer;
+        img{
+            width:50px; 
+            height:50px;
+            border-radius: 50%;
+            align-self: center;
+        }
+        h5{
+            color: $greenSpotify;
+            margin: 20px;
+            align-self: center;
+        }
+    }
+}
+
+.infoUser{
+    top: 105%;
+    position: absolute;
+    left: calc(-25% + 30px);
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 20px 20px 20px 20px;
+    display: none;
+    z-index: 99;
+    &:before{
+        content: "";
+        top: -15px;
+        left: 110px;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 17px solid white;
+    }
+    div{
+        padding-bottom: 10px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        
+    }
+}

@@ -17,6 +17,68 @@ h1 {
   display: flex;
   justify-content: space-between; }
 
+.navbar {
+  height: 75px;
+  background-color: black; }
+
+.logo-navbar {
+  width: 145px;
+  margin-left: 100px; }
+
+.user-navbar {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 100px;
+  position: relative; }
+  .user-navbar .user-navbar-url {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    cursor: pointer; }
+    .user-navbar .user-navbar-url img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      align-self: center; }
+    .user-navbar .user-navbar-url h5 {
+      color: #57B55F;
+      margin: 20px;
+      align-self: center; }
+
+.infoUser {
+  top: 105%;
+  position: absolute;
+  left: calc(-25% + 30px);
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 20px 20px 20px 20px;
+  display: none;
+  z-index: 99; }
+  .infoUser:before {
+    content: "";
+    top: -15px;
+    left: 110px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 17px solid white; }
+  .infoUser div {
+    padding-bottom: 10px;
+    text-align: center;
+    letter-spacing: 0.5px; }
+
+.home-container {
+  height: 100%;
+  width: 100%;
+  background-image: url("../../images/backgroundSpotify_0004.jpg");
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute; }
+
 @font-face {
   font-family: 'Circular Std Black';
   font-style: normal;
