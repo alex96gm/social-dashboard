@@ -1,14 +1,5 @@
 
-h1 {
-    font-size: 80px;
-    font-weight: 900;
-    letter-spacing: -.04em;
-    line-height: 1.15;
-    margin-top: 0;
-    font-weight: bold;
-}
 .background-class{
-    overflow: hidden;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -17,5 +8,49 @@ h1 {
     background-size: cover;
     display: flex;
     justify-content: space-between;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    
+        form {
+            padding-right: 50px;
+            padding-left: 50px;
+            margin-bottom: 50px;
+            button{
+                cursor: pointer;
+                border: none;
+                font-size: 21px;
+                line-height: 1;
+                border-radius: 500px;
+                padding: 20px 60px 20px;
+                color: white;
+                background-color: $greenSpotify;
+                font-weight: 700;
+                letter-spacing: 1px;    
+            }
+        } 
+        .container-text{           
+            padding-left: 50px;;
+            h1{
+                font-size: 48px;
+                font-weight: 1000;
+            }
+            div{
+                display: flex;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                h1{
+                    padding-right: 48px;
+                    font-size: 48px;
+                    font-weight: 1000;
+                }
+            }
+        }
+    }
 }
-   
+
+
+    
