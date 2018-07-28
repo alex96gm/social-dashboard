@@ -10,14 +10,12 @@ module.exports.createWithIDPCallback = (req, res, next) => {
     passport.authenticate(`${req.params.provider}-auth`, (error, user) => {
         if (error) {
             next(error);
-        } else {
-            
+        } else {           
             req.login(user, (error) => {
                 if (error) {
                     next(error)
                 } else {
-                    res.redirect(`/home`);
-                    
+                    res.redirect(`/home`);                    
                 }
             });
         }

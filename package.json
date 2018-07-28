@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "DEBUG=social-dashboard:* nodemon ./bin/www"
+    "dev": "DEBUG=social-dashboard:* nodemon --inspect ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -20,6 +20,7 @@
     "nodemon": "^1.18.3",
     "passport": "^0.4.0",
     "passport-spotify": "^1.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "spotify-web-api-node": "^3.1.1"
   }
 }

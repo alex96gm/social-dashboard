@@ -6,7 +6,12 @@ const passport = require('passport');
 
 router.get('/', loginController.render);
 
-router.post('/spotify', passport.authenticate('spotify-auth', {scope: ['user-read-email', 'user-read-private'] }),);
+router.post('/spotify', passport.authenticate('spotify-auth', {scope: [
+    'user-read-email', 
+    'user-read-private',
+    'user-read-recently-played',
+    'user-top-read'
+] }),);
 router.get('/:provider/cb', loginController.createWithIDPCallback);
 
 

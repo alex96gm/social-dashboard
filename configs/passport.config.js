@@ -1,5 +1,9 @@
 const User = require('../models/user.model');
+const mongoose = require('mongoose');
 const SpotifyStrategy = require('passport-spotify').Strategy;
+const serviceSpotify = require('../services/spotify.service');
+const utilitiesDTO = require('../utilities/dto.parse');
+const TopArtist = require('../models/top.artists');
 
 module.exports.setup = (passport) => {
 
@@ -15,39 +19,56 @@ module.exports.setup = (passport) => {
             .catch(error => next(error));
     });
 
-    passport.use('spotify-auth',new SpotifyStrategy({
+
+
+    passport.use('spotify-auth', new SpotifyStrategy({
         clientID: process.env.SPOTIFY_AUTH_CLIENT_ID || '',
         clientSecret: process.env.SPOTIFY_AUTH_CLIENT_SECRET || '',
         callbackURL: process.env.SPOTIFY_AUTH_CB || '/login/spotify/cb',
-    },authenticateOAuthUser));
+    }, authenticateOAuthUser));
+
+
+    function getUserWithPosts(username) {
+        return User.findOne({ username: username })
+            .populate('posts').exec((err, posts) => {
+                console.log("Populated User " + posts);
+            })
+    }
 
     function authenticateOAuthUser(accessToken, refreshToken, profile, next) {
-        
-    User.findOne({ id_spotify: profile.id })
-      .then(user => {
-        if (user) {
-            console.log(profile);
-          next(null, user);
-        } else {    
-            user = new User({
-            email: profile.emails[0].value,
-            password: Math.random().toString(36).substring(7),
-            id_spotify:profile.id,
-            user_name: profile.displayName,
-            country:profile.country,
-            user_url:profile.profileUrl,
-            followers:profile.followers.toString(),
-            images:profile.photos,
-            product:profile.product,
-            type:profile._json.type,
-            uri:profile._json.uri
-          })
-          return user.save()
+
+        User.findOne({ idSpotify: profile.id })
             .then(user => {
-              next(null, user);
-            });
-        }
-      })
-      .catch(error => next(error));
+                if (user) {
+                    User.findOneAndUpdate(
+                        { id_spotify: user.id_spotify },
+                        { $set: { accessToken: accessToken, refreshToken: refreshToken } },
+                        { new: true })
+                        .then((userReturned) => {
+                            user = userReturned
+                        });
+                } else {
+                    user = utilitiesDTO.userParser(profile, accessToken, refreshToken);
+                    return user.save()
+                        .then(user => { })
+                }
+
+                return serviceSpotify.getData(accessToken, refreshToken, user)
+                    .then((results) => {
+
+                        let artists = utilitiesDTO.topArtistParser(results[0], user);
+                        let songs = utilitiesDTO.topSongParser(results[1], user);
+                        
+                        return Promise.all([
+                            artists.save(),
+                            songs.save()
+                        ]).then(()=>{
+                            next(null, user);
+                        })
+                    })
+
+            })
+            .catch(error => next(error));
     }
 }
+
