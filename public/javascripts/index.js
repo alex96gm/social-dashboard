@@ -1,6 +1,6 @@
 $( document ).ready(function() {
     hoverUser(); 
-    clickUser();  
+    clickUser();
 });
 
 function hoverUser(){
@@ -19,21 +19,4 @@ function clickUser(){
     });
 }
 
-// spotyApi.setAccessToken(accessToken);
-//             return Promise.all(
-//                 spotyApi.getTopArtist(),
-//                 spotyApi.getTopSongs(),
-//             )
-//             .then(results => {
-//                 const artist = results[0];
-//                 const songs = results[1];
 
-//                 return Promise.all(
-//                     topArtist.save(),
-//                     topSongs.save(),
-//                     user.save()
-//                 )
-//                 .then(results => {
-//                     next(null, results[2]);
-//                 })
-//             })

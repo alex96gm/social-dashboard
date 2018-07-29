@@ -7,10 +7,10 @@ module.exports.render = (req, res, next) => {
 module.exports.getTopArtistsAndRender = (req, res, next) => {
     let id = req.user._id;
     TopArtists.findOne({ userId: id }) //ultimo documento 
-    .then((topArtists)=>{    
-        if(topArtists){
-            console.log(topArtists);
-            res.render('artists', topArtists);
+    .then((artists)=>{    
+        if(artists){
+            console.log(artists.topArtists[0].artistImages[0].url);
+            res.render('artists', { artists: artists.topArtists});
         }  
     })
     .catch(error => next(error))

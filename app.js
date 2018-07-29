@@ -10,6 +10,7 @@ const session = require('express-session');
 const passport = require('passport');
 
 require('./configs/db.config');
+require('./configs/hbs.config.js');
 require('./configs/passport.config').setup(passport);
 
 const loginRouter = require('./routes/login');

@@ -1,12 +1,23 @@
-<div class="top-artists-container container-page">
+<div class="top-artists-container">
     <div class="row h-100">
-        <div class="col-2 menu-artists h-100">
-           <div class="menu-artists-container">
-                <div>Artistas más escuchados</div>
-                <div>Gráficas</div>
-                <div>Global stats artits</div>
-            </div> 
+        <div class="col-1 menu-artists h-100">
+            <div class="menu-artists-container">
+                <div>
+                    <i class="fas fa-users"></i>
+                </div>
+                <div>
+                    <i class="fas fa-chart-area"></i>
+                </div>
+                <div>
+                    <i class="fas fa-globe"></i>
+                </div>
+            </div>
         </div>
-        <div class="col-10">Content</div>
+        <div class="col-1"></div>
+        <div class="col-11 container-artists">
+            {{#each artists as |artist| }}
+                {{> card.artist artist}}
+            {{/each}}       
+        </div>
     </div>
 </div>

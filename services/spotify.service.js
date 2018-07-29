@@ -9,7 +9,7 @@ const spotifyApi = new SpotifyWebApi({
 spotifyApi.getData = (accessToken, refreshToken) => {
     spotifyApi.setAccessToken(accessToken);
     return Promise.all([
-        spotifyApi.getMyTopArtists(),
+        spotifyApi.getMyTopArtists({ time_range: 'short_term',limit: 50}),
         spotifyApi.getMyTopTracks()
     ])
         .then(results => {
