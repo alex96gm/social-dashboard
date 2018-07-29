@@ -10,30 +10,39 @@
 
 <body>
   <nav class="navbar fixed-top">
-    <img class="logo-navbar" src="images/spotifyLogo.png"> {{#if session}}
-    <div class="float-right">
-      <a href="/artists">
-        Artists
-      </a>
-    </div>
-    <div class="user-navbar float-right">
-      <a class="user-navbar-url" style="cursor: pointer;" href="{{session.user_url}}" target="_blank">
-        <img src="{{session.images}}">
-        <h5>Perfil</h5>
-      </a>
-      <div class="infoUser float-right">
-        <div>{{session.user_name}}</div>
-        <div>{{session.email}}</div>
-        <div>Followers: {{session.followers}}</div>
-        <div>Product: {{session.product}}</div>
-      </div>
-    </div>
+    <img class="logo-navbar" src="images/spotifyLogo.png"> 
+    {{#if session}}
+        <div class="float-right">
+          <form action="/artists" method="post">
+            <button class="button-navbar"> Top artistas</button>
+          </form>
+        </div>
+        <div class="float-right">
+          <form action="/songs" method="post">
+            <button class="button-navbar"> Top canciones</button>
+          </form>  
+        </div>
+        <div class="user-navbar float-right">
+          <a class="user-navbar-url" style="cursor: pointer;" href="{{session.userUrl}}" target="_blank">
+            <img src="{{session.images}}">
+            <h5>Perfil</h5>    
+          </a>
+          <div class="infoUser float-right">
+            <div>{{session.userName}}</div>
+            <div>{{session.email}}</div>
+            <div>Followers: {{session.followers}}</div>
+            <div>Product: {{session.product}}</div>
+            <div><a class="nav-link text-danger" href="/login/logout">Logout</a></div>
+          </div>
+        </div>
+        
     {{/if}}
 
   </nav>
 
+  {{{body}}} 
 
-  {{{body}}} {{!-- SCRIPTS --}}
+  {{!-- SCRIPTS --}}
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>

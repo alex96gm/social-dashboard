@@ -1,9 +1,7 @@
 const User = require('../models/user.model');
-const mongoose = require('mongoose');
 const SpotifyStrategy = require('passport-spotify').Strategy;
 const serviceSpotify = require('../services/spotify.service');
 const utilitiesDTO = require('../utilities/dto.parse');
-const TopArtist = require('../models/top.artists');
 
 module.exports.setup = (passport) => {
 

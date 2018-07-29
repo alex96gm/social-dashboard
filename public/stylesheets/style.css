@@ -66,9 +66,11 @@
       border-radius: 50%;
       align-self: center; }
     .user-navbar .user-navbar-url h5 {
-      color: #57B55F;
+      color: white;
       margin: 20px;
       align-self: center; }
+  .user-navbar:hover .user-navbar-url h5 {
+    color: #57B55F !important; }
 
 .infoUser {
   top: 105%;
@@ -76,7 +78,7 @@
   left: calc(-25% + 30px);
   background-color: white;
   color: black;
-  padding: 20px;
+  padding: 20px 20px 10px 20px;
   border-radius: 20px 20px 20px 20px;
   display: none;
   z-index: 99; }
@@ -94,15 +96,33 @@
     padding-bottom: 10px;
     text-align: center;
     letter-spacing: 0.5px; }
+    .infoUser div .nav-link {
+      padding: 0; }
+
+.button-navbar {
+  cursor: pointer;
+  border: none;
+  color: white;
+  background-color: black;
+  outline: none; }
+  .button-navbar:hover {
+    color: #57B55F; }
 
 .home-container {
-  height: 100%;
-  width: 100%;
-  background-image: url("../../images/backgroundSpotify_0004.jpg");
-  background-repeat: no-repeat;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute; }
+  background-image: url("../../images/backgroundSpotify_0006.jpg"); }
+
+.top-artists-container {
+  background-image: url("../../images/backgroundSpotify_00010.jpg"); }
+
+.menu-artists {
+  background-color: #0000004f; }
+  .menu-artists .menu-artists-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    .menu-artists .menu-artists-container div {
+      font-size: 1.5em; }
 
 @font-face {
   font-family: 'Circular Std Black';
@@ -112,5 +132,14 @@
 
 body {
   font-family: 'Circular Std Black' !important; }
+
+.container-page {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  padding-top: 75px; }
 
 /*# sourceMappingURL=style.css.map */
