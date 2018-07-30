@@ -13,15 +13,16 @@
 
 .menu-artists{
     
-    background-color: rgb(143, 49, 10);
+    background-color:#2c5e92;
     .menu-artists-container{
-        background-color: #0000006b;
+        background-color: #00000098;
         height: 100%;
         display: flex;
         padding-bottom: 75px;
         flex-direction: column;
-        justify-content: space-around;      
-        div{
+        justify-content: space-around;    
+        div{         
+            border-right: 2px black solid;          
             cursor: pointer;
             color:black;
             height: 100%;
@@ -30,6 +31,10 @@
             display: flex;
             justify-content: center;
             align-self: center;
+            &:nth-child(2){
+                border-top: 2px black solid;
+                border-bottom: 2px black solid;
+            }  
             i{
                 align-self: center;
             }
@@ -43,7 +48,8 @@
 }
 
 .col-11.container-artists{
-    background-color: rgb(143, 49, 10);
+    background-image: linear-gradient(to right,#2c5e92 0,#552f6d);
+    //background-image: linear-gradient(to right,$greenSpotify,(rgb(143, 49, 10)));
     padding: 15px 20px 20px 20px;
     position: absolute;
     right: 0;
