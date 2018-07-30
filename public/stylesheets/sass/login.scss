@@ -1,9 +1,29 @@
+@-webkit-keyframes test{
+    0% {
+        background-image: url('../../images/backgroundSpotify_00010.jpg');
+    }
+    20% {
+        background-image: url('../../images/backgroundSpotify_0008.jpg');
+    }
+    40% {             
+        background-image: url('../../images/backgroundSpotify_0009.jpg');
+        }  
+    60% {
+        background-image: url('../../images/backgroundSpotify_00013.jpg');
+    }
+    80% {             
+        background-image: url('../../images/backgroundSpotify_00014.jpg');       
+    }
+    100% {             
+        background-image: url('../../images/backgroundSpotify_00010.jpg');       
+    }   
+}
 
 .background-class{
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: url('../../images/backgroundSpotify_0001.jpg');
+    animation: test 20s linear infinite alternate;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;

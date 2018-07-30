@@ -9,7 +9,7 @@ module.exports.getTopArtistsAndRender = (req, res, next) => {
     TopArtists.findOne({ userId: id }) //ultimo documento 
     .then((artists)=>{    
         if(artists){
-            console.log(artists.topArtists[0].artistImages[0].url);
+            //console.log(artists.topArtists[0].artistImages[0].url);
             res.render('artists', { artists: artists.topArtists});
         }  
     })
