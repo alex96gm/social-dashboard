@@ -1,4 +1,9 @@
 const SpotifyWebApi = require("spotify-web-api-node");
+const OPTIONS_TOP_ARTISTS_SONGS ={
+    time_range: 'short_term',
+    limit: 50
+}
+
 
 const spotifyApi = new SpotifyWebApi({
     clientId: process.env.SPOTIFY_AUTH_CLIENT_ID,
@@ -9,8 +14,8 @@ const spotifyApi = new SpotifyWebApi({
 spotifyApi.getData = (accessToken, refreshToken) => {
     spotifyApi.setAccessToken(accessToken);
     return Promise.all([
-        spotifyApi.getMyTopArtists({ time_range: 'short_term',limit: 50}),
-        spotifyApi.getMyTopTracks()
+        spotifyApi.getMyTopArtists(OPTIONS_TOP_ARTISTS_SONGS),
+        spotifyApi.getMyTopTracks(OPTIONS_TOP_ARTISTS_SONGS)
     ])
         .then(results => {
             const artist = results[0].body.items;

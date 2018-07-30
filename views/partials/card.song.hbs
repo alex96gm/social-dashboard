@@ -1,0 +1,11 @@
+<div class="card-song">
+    <img src="{{this.songAlbum.songAlbumImges.0.url}}">
+    <div class="info-song">
+        <div class="name-artirts">
+            <h6>{{this.songName}}</h6>
+            {{#each this.songArtists as |songArtist| }}
+                <span>{{songArtist.name}}</span>
+            {{/each}} 
+        </div>       
+    </div>
+</div>

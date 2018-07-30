@@ -16,6 +16,7 @@ require('./configs/passport.config').setup(passport);
 const loginRouter = require('./routes/login');
 const homeRouter = require('./routes/home');
 const artistsRouter = require('./routes/artists');
+const songsRouter = require('./routes/songs');
 var app = express();
 
 // view engine setup
@@ -60,6 +61,7 @@ app.use((req, res, next) => {
   res.locals.session = req.user;
   next();
 })
+app.use('/songs', songsRouter);
 app.use('/artists', artistsRouter);
 app.use('/login', loginRouter);
 app.use('/home', homeRouter);

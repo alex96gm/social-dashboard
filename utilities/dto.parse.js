@@ -58,7 +58,9 @@ module.exports.topSongParser = (arraySongs, user) =>{
                     songAlbumUrl: song.album.external_urls.spotify,
                     songAlbumArtits: song.album.artists,
                     songAlbumImges: song.album.images,
-                }
+                },
+                songImages:song.images
+
             }
         );
         return returnSongs;

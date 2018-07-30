@@ -4,6 +4,6 @@ const artistsController = require('../controllers/artists.controler');
 const authMiddleware = require('../middlewares/auth.middleware');
 
 router.get('/', authMiddleware.isAuthenticated, artistsController.render);
-router.post('/', artistsController.getTopArtistsAndRender);
+router.post('/', authMiddleware.isAuthenticated, artistsController.getTopArtistsAndRender);
 
 module.exports = router;
