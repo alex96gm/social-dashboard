@@ -1,21 +1,21 @@
 @-webkit-keyframes test{
     0% {
-        background-image: url('../../images/backgroundSpotify_00010.jpg');
+        background-image: url('/images/bg/jumbo-1.jpg');
     }
     20% {
-        background-image: url('../../images/backgroundSpotify_0008.jpg');
+        background-image: url('/images/bg/jumbo-2.jpg');
     }
     40% {             
-        background-image: url('../../images/backgroundSpotify_0009.jpg');
+        background-image: url('/images/bg/jumbo-3.jpg');
         }  
     60% {
-        background-image: url('../../images/backgroundSpotify_00013.jpg');
+        background-image: url('/images/bg/jumbo-4.jpg');
     }
     80% {             
-        background-image: url('../../images/backgroundSpotify_00014.jpg');       
+        background-image: url('/images/bg/jumbo-5.jpg');       
     }
     100% {             
-        background-image: url('../../images/backgroundSpotify_00010.jpg');       
+        background-image: url('/images/bg/jumbo-6.jpg');
     }   
 }
 
