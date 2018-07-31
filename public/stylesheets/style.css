@@ -1,16 +1,16 @@
 @-webkit-keyframes test {
   0% {
-    background-image: url("../../images/backgroundSpotify_00010.jpg"); }
+    background-image: url("/images/bg/jumbo-1.jpg"); }
   20% {
-    background-image: url("../../images/backgroundSpotify_0008.jpg"); }
+    background-image: url("/images/bg/jumbo-2.jpg"); }
   40% {
-    background-image: url("../../images/backgroundSpotify_0009.jpg"); }
+    background-image: url("/images/bg/jumbo-3.jpg"); }
   60% {
-    background-image: url("../../images/backgroundSpotify_00013.jpg"); }
+    background-image: url("/images/bg/jumbo-4.jpg"); }
   80% {
-    background-image: url("../../images/backgroundSpotify_00014.jpg"); }
+    background-image: url("/images/bg/jumbo-5.jpg"); }
   100% {
-    background-image: url("../../images/backgroundSpotify_00010.jpg"); } }
+    background-image: url("/images/bg/jumbo-1.jpg"); } }
 
 .background-class {
   position: absolute;
@@ -149,7 +149,6 @@
     justify-content: space-around; }
     .menu-artists .menu-artists-container div {
       border-right: 2px black solid;
-      cursor: pointer;
       color: black;
       height: 100%;
       width: 100%;
@@ -160,11 +159,21 @@
       .menu-artists .menu-artists-container div:nth-child(2) {
         border-top: 2px black solid;
         border-bottom: 2px black solid; }
-      .menu-artists .menu-artists-container div i {
-        align-self: center; }
       .menu-artists .menu-artists-container div:hover {
         background-color: #00000096;
         color: white; }
+      .menu-artists .menu-artists-container div a {
+        color: white;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        text-decoration: none; }
+        .menu-artists .menu-artists-container div a i {
+          align-self: center; }
 
 .col-11.container-artists {
   background-image: linear-gradient(to right, #2c5e92 0, #552f6d);
@@ -210,9 +219,8 @@
     position: fixed; }
 
 .menu-songs {
-  background-color: #1A5B7B; }
+  background-color: #033b57; }
   .menu-songs .menu-songs-container {
-    background-color: #00000098;
     height: 100%;
     display: flex;
     padding-bottom: 75px;
@@ -221,7 +229,7 @@
     .menu-songs .menu-songs-container div {
       border-right: 2px black solid;
       cursor: pointer;
-      color: black;
+      color: white;
       height: 100%;
       width: 100%;
       font-size: 3em;
@@ -234,8 +242,7 @@
       .menu-songs .menu-songs-container div i {
         align-self: center; }
       .menu-songs .menu-songs-container div:hover {
-        background-color: #00000096;
-        color: white; }
+        color: black; }
 
 .col-11.container-songs {
   background-image: linear-gradient(to right, #1A5B7B, #63B7B6);

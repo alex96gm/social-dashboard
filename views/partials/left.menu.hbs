@@ -1,0 +1,37 @@
+<div class="col-1 menu-artists h-100">
+    <div class="menu-artists-container">
+        {{#actions_button_menu  path}}
+            <div>
+                <a href="/artists">
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+            <div>
+                <a href="/artists/stats">
+                    <i class="fas fa-chart-area"></i>
+                </a>
+            </div>
+            <div>
+                <a href="/artists/global">
+                    <i class="fas fa-globe"></i>
+                </a>
+            </div>
+        {{else}}
+            <div>
+                <a href="/songs">
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+            <div>
+                <a href="/songs/stats">
+                    <i class="fas fa-chart-area"></i>
+                </a>
+            </div>
+            <div>
+                <a href="/songs/global">
+                    <i class="fas fa-globe"></i>
+                </a>
+            </div>
+        {{/actions_button_menu}}
+    </div>
+</div>

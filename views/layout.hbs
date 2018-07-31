@@ -10,43 +10,22 @@
 </head>
 
 <body>
-  <nav class="navbar fixed-top">
-    <img class="logo-navbar" src="images/spotifyLogo.png"> 
-    {{#if session}}
-      <div class="float-right">
-          <form action="/home" method="post">
-            <button class="button-navbar">Home</button>
-          </form>
-        </div>
-        <div class="float-right">
-          <form action="/artists" method="post">
-            <button class="button-navbar"> Top artistas</button>
-          </form>
-        </div>
-        <div class="float-right">
-          <form action="/songs" method="post">
-            <button class="button-navbar"> Top canciones</button>
-          </form>  
-        </div>
-        <div class="user-navbar float-right">
-          <a class="user-navbar-url" style="cursor: pointer;" href="{{session.userUrl}}" target="_blank">
-            <img src="{{session.images}}">
-            <h5>Perfil</h5>    
-          </a>
-          <div class="infoUser float-right">
-            <div>{{session.userName}}</div>
-            <div>{{session.email}}</div>
-            <div>Followers: {{session.followers}}</div>
-            <div>Product: {{session.product}}</div>
-            <div><a class="nav-link text-danger" href="/login/logout">Logout</a></div>
+  {{> nav }} 
+
+  {{#needs_left_menu path }}
+    <div class="top-artists-container">
+      <div class="row h-100">
+          {{> left.menu path=../path}}
+          <div class="col-1"></div>
+          <div class="col-11 container-artists">
+            {{{ ../body }}}
           </div>
-        </div>
-        
-    {{/if}}
+      </div>
+    </div>
+  {{else}}
+    {{{ ../body }}}
+  {{/needs_left_menu}}
 
-  </nav>
-
-  {{{body}}} 
 
   {{!-- SCRIPTS --}}
 
@@ -58,6 +37,14 @@
     crossorigin="anonymous"></script>
 
   <script src="javascripts/index.js"></script>
+
+  <div style="display: none;">
+    <img src="/images/bg/jumbo-1.jpg" alt="">
+    <img src="/images/bg/jumbo-2.jpg" alt="">
+    <img src="/images/bg/jumbo-3.jpg" alt="">
+    <img src="/images/bg/jumbo-4.jpg" alt="">
+    <img src="/images/bg/jumbo-5.jpg" alt="">
+  </div>
 </body>
 
 </html>

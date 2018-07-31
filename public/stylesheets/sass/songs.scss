@@ -15,9 +15,9 @@
 }
 
 .menu-songs{   
-    background-color:$topSongsBlue;
+    background-color:rgb(3, 59, 87);
     .menu-songs-container{
-        background-color: #00000098;
+        
         height: 100%;
         display: flex;
         padding-bottom: 75px;
@@ -26,7 +26,7 @@
         div{         
             border-right: 2px black solid;          
             cursor: pointer;
-            color:black;
+            color:white;
             height: 100%;
             width: 100%;
             font-size: 3em;
@@ -41,8 +41,8 @@
                 align-self: center;
             }
             &:hover{
-                background-color: #00000096;
-                color: white;
+                //background-color: #00000096;
+                color: black;
             }
             
         }

@@ -1,0 +1,29 @@
+<nav class="navbar fixed-top">
+    <img class="logo-navbar" src="/images/spotifyLogo.png"> 
+    {{#if session}}
+      <div class="float-right">
+          <a  class="button-navbar" href="/home"> Home</a>
+        </div>
+        <div class="float-right">
+          <a  class="button-navbar" href="/artists"> Top artistas</a>
+        </div>
+        <div class="float-right">
+          <a  class="button-navbar" href="/songs"> Top canciones</a>
+        </div>
+        <div class="user-navbar float-right">
+          <a class="user-navbar-url" style="cursor: pointer;" href="{{session.userUrl}}" target="_blank">
+            <img src="{{session.images}}">
+            <h5>Perfil</h5>    
+          </a>
+          <div class="infoUser float-right">
+            <div>{{session.userName}}</div>
+            <div>{{session.email}}</div>
+            <div>Followers: {{session.followers}}</div>
+            <div>Product: {{session.product}}</div>
+            <div><a class="nav-link text-danger" href="/login/logout">Logout</a></div>
+          </div>
+        </div>
+        
+    {{/if}}
+
+  </nav>
