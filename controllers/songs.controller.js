@@ -16,3 +16,11 @@ module.exports.getTopArtistsAndRender = (req, res, next) => {
         })
         .catch(error => next(error))
 }
+
+module.exports.statsAndRender = (req, res, next) => {
+    res.render('songs-stats');
+}
+
+module.exports.globalAndRender = (req, res, next) => {
+    res.render('songs-global');
+}
