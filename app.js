@@ -47,8 +47,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: {
-    secure: false,
-    httpOnly: true,
+    secure: true,
+    httpOnly: false,
     maxAge: 60 * 60 * 24 * 1000
   }
 }));
