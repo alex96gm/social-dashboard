@@ -6,12 +6,10 @@ const TopSongs = require('../models/top.songs');
 
 module.exports.getTopArtistsAndRender = (req, res, next) => {
     let id = req.user._id;
-    TopSongs.find({ userId: id }) //ultimo documento 
+    TopSongs.find({ userId: id }).sort({createdAt:-1}).limit(1) //ultimo documento 
         .then((songs) => {
-            let song = songs[(songs.length) - 1]
-            if(song){
-                console.log(song.topSongs[0]);
-                res.render('songs',{ songs: song.topSongs });
+            if(songs){
+                res.render('songs',{ songs: songs[0].topSongs });
             }  
         })
         .catch(error => next(error))

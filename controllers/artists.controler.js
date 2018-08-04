@@ -6,18 +6,9 @@ const TopArtists = require('../models/top.artists');
 
 module.exports.getTopArtistsAndRender = (req, res, next) => {
     let id = req.user._id;
-    TopArtists.find({ userId: id }) //ultimo documento 
+    TopArtists.find({ userId: id }).sort({createdAt:-1}).limit(1) //ultimo documento 
         .then((artists) => {
-            let lastArtits = artists[(artists.length) - 1]
-
-            //console.log(artists.topArtists[0].artistImages[0].url);
-
-            let objectTopArtits = {
-                artists: lastArtits.topArtists
-            }
-
-            res.render('artists', objectTopArtits);
-
+            res.render('artists', {artists :artists[0].topArtists});
         })
         .catch(error => next(error))
 
