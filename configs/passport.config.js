@@ -2,6 +2,8 @@ const User = require('../models/user.model');
 const SpotifyStrategy = require('passport-spotify').Strategy;
 const serviceSpotify = require('../services/spotify.service');
 const utilitiesDTO = require('../utilities/dto.parse');
+const TopArtists = require('../models/top.artists');
+
 
 module.exports.setup = (passport) => {
 
@@ -25,13 +27,6 @@ module.exports.setup = (passport) => {
         callbackURL: process.env.SPOTIFY_AUTH_CB || '/login/spotify/cb',
     }, authenticateOAuthUser));
 
-
-    function getUserWithPosts(username) {
-        return User.findOne({ username: username })
-            .populate('posts').exec((err, posts) => {
-                console.log("Populated User " + posts);
-            })
-    }
 
     function authenticateOAuthUser(accessToken, refreshToken, profile, next) {
 
@@ -59,9 +54,9 @@ module.exports.setup = (passport) => {
                         
                         return Promise.all([
                             artists.save(),
-                            songs.save()
-                        ]).then(()=>{
-                            next(null, user);
+                            songs.save(),                          
+                        ]).then((result)=>{
+                                next(null, user);    
                         })
                     })
 

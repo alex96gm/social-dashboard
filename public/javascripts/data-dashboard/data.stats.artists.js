@@ -23,16 +23,17 @@ function statsPopularityByArtits(data) {
     Highcharts.chart('artists-by-popularity', {
         chart: {
             type: 'column',
-            borderWith: 5,
+            borderWidth: 2,
             borderRadius: 10,
+            borderColor:'white',
             style: {
                 fontFamily: 'Circular Std Black'
             },
             backgroundColor: {
-                linearGradient: { x1: 1, y1: 1, x2: 0, y2: 0 },
+                linearGradient: { x1: 1, x2: 0},
                 stops: [
-                    [0, '#ECA72C'],
-                    [1, '#ECA72C']
+                    [0, '#4B2A63'],
+                    [1, '#265487']
                 ]
             },
             style: {
@@ -44,12 +45,13 @@ function statsPopularityByArtits(data) {
             gridLineColor:'#000000'
         },
         title: {
-            text: 'Artistas por popularidad'
+            text: 'Artistas por popularidad',
+            style:{ "color": "white" }
         },
         xAxis: {
             labels: {
                 style: {
-                    color:'black'
+                    color:'white'
                 }
             },
             type: 'category',
@@ -57,13 +59,16 @@ function statsPopularityByArtits(data) {
         yAxis: {
             labels: {
                 style: {
-                    color:'black'
+                    color:'white'
                 }
             },
             max: 100,
             min: 0,
             title: {
-                text: 'Popularidad'
+                text: 'Popularidad',
+                style: {
+                    color:'white'
+                }
             }
         },
         legend: {
@@ -103,7 +108,6 @@ function stastGenres(data) {
         mySeries.push([element.value, element.count]);
     });
 
-    console.log(genresList);
     var chart = Highcharts.chart('firtsChart', {
         chart: {
             type: 'pie',
@@ -112,18 +116,19 @@ function stastGenres(data) {
                 alpha: 45,
                 beta: 0
             },
-            borderWith: 5,
+            borderWidth: 2,
+            borderColor:'white',
             borderRadius: 10,
             style: {
                 fontFamily: 'Circular Std Black'
             },
             backgroundColor: {
-                linearGradient: { x1: 1, y1: 1, x2: 0, y2: 0 },
+                linearGradient: { x1: 1, x2: 0},
                 stops: [
-                    [0, '#ECA72C'],
-                    [1, '#ECA72C']
+                    [0, '#383F75'],
+                    [1, '#265487']
                 ]
-            }
+            },
         },
         plotOptions: {
             pie: {
@@ -137,7 +142,13 @@ function stastGenres(data) {
             }
         },
         title: {
-            text: 'Géneros mas escuchados'
+            text: 'Géneros mas escuchados',
+            style:{ "color": "white" }
+        },
+        labels:{
+            style:{
+                color: 'white'
+            }
         },
         series: [{
             type: 'pie',

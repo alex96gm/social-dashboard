@@ -24,5 +24,16 @@ spotifyApi.getData = (accessToken, refreshToken) => {
         });
 }
 
+spotifyApi.getRecomendationsAndReleases = (accessToken, refreshToken, arrayOfArtistsSeed) => {
+    spotifyApi.setAccessToken(accessToken);
+    return Promise.all([
+        spotifyApi.getRecommendations({limit:40,seed_artists: arrayOfArtistsSeed}),
+        spotifyApi.getNewReleases({limit:40})
+    ])
+    .then(results => {
+            return {recomendations: results[0].body.tracks, releases:results[1].body.albums.items};
+        });
+}
+
 
 module.exports = spotifyApi;
