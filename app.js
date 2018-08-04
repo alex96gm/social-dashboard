@@ -40,23 +40,19 @@ app.use(sassMiddleware({
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {
-    secure: true,
-    httpOnly: false,
+    secure: false,
+    httpOnly: true,
     maxAge: 60 * 60 * 24 * 1000
   }
 }));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-
 
 app.use((req, res, next) => {
   res.locals.session = req.user;
