@@ -270,6 +270,14 @@
     .card-song .info-song span {
       font-size: 10px; }
 
+.stats-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+  .stats-container .firt-chart {
+    display: flex;
+    padding-bottom: 15px; }
+
 @font-face {
   font-family: 'Circular Std Black';
   font-style: normal;
