@@ -31,8 +31,8 @@ function statsPopularityByArtits(data) {
             backgroundColor: {
                 linearGradient: { x1: 1, y1: 1, x2: 0, y2: 0 },
                 stops: [
-                    [0, '#DE5F98'],
-                    [1, '#EFBA80']
+                    [0, '#ECA72C'],
+                    [1, '#ECA72C']
                 ]
             },
             style: {
@@ -120,8 +120,8 @@ function stastGenres(data) {
             backgroundColor: {
                 linearGradient: { x1: 1, y1: 1, x2: 0, y2: 0 },
                 stops: [
-                    [0, '#4B2E39'],
-                    [1, '#4B2E39']
+                    [0, '#ECA72C'],
+                    [1, '#ECA72C']
                 ]
             }
         },

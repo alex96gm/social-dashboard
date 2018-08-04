@@ -1,5 +1,6 @@
 const TopArtist = require('../models/top.artists');
 const TopSongs = require('../models/top.songs');
+const User = require('../models/user.model');
 const mongoose = require('mongoose');
 
 module.exports.userParser = (profile, accessToken, refreshToken) => {
@@ -7,11 +8,11 @@ module.exports.userParser = (profile, accessToken, refreshToken) => {
         email: profile.emails[0].value,
         password: Math.random().toString(36).substring(7),
         idSpotify: profile.id,
-        userName: profile.displayName,
+        userName: profile.displayName || profile.username,
         country: profile.country,
         userUrl: profile.profileUrl,
         followers: profile.followers.toString(),
-        images: profile.photos,
+        images: profile.photos.length ? profile.photos : [],
         product: profile.product,
         type: profile._json.type,
         uri: profile._json.uri,

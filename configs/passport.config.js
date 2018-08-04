@@ -39,7 +39,7 @@ module.exports.setup = (passport) => {
             .then(user => {
                 if (user) {
                     User.findOneAndUpdate(
-                        { id_spotify: user.id_spotify },
+                        { _id: user._id },
                         { $set: { accessToken: accessToken, refreshToken: refreshToken } },
                         { new: true })
                         .then((userReturned) => {
