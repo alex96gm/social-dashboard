@@ -17,6 +17,7 @@ const loginRouter = require('./routes/login');
 const homeRouter = require('./routes/home');
 const artistsRouter = require('./routes/artists');
 const songsRouter = require('./routes/songs');
+const apiRouter = require('./routes/api');
 var app = express();
 
 // view engine setup
@@ -62,6 +63,7 @@ app.use((req, res, next) => {
   res.locals.path = req.path;
   next();
 })
+app.use('/api', apiRouter);
 app.use('/songs', songsRouter);
 app.use('/artists', artistsRouter);
 app.use('/login', loginRouter);
@@ -82,9 +84,12 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  if (req.headers.accept === 'application/json') {
+    res.json(err);
+  } else {
+    res.render('error');
+  }
 });
 
 module.exports = app;

@@ -1,21 +1,29 @@
-$( document ).ready(function() {
-    hoverUser(); 
+$(document).ready(function () {
+    hoverUser();
     clickUser();
 });
 
-function hoverUser(){
-    $( ".user-navbar" ).hover(
-        function() {
-          $( '.infoUser' ).show();
-        }, 
-        function() {
-          $( '.infoUser' ).hide();
+const Selectors = {
+    UserBar: '.user-navbar',
+};
+const $userBar = $(Selectors.UserBar);
+
+function hoverUser() {
+
+    $userBar.hover(
+        function () {
+            $('.infoUser').show();
+        },
+        function () {
+            $('.infoUser').hide();
         }
-      );
+    );
 }
-function clickUser(){
-    $( ".user-navbar" ).on( "click", function() {
-        $( '.infoUser' ).hide();
+function clickUser() {
+    $userBar.on("click", function () {
+        $('.infoUser').hide();
     });
 }
+
+
 

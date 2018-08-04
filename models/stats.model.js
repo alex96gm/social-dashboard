@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const statsSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
-        require: 'User'
+        require: 'User',
+        index: true
     }
 }, { discriminatorKey: 'kind', timestamps: true });
 

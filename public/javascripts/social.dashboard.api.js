@@ -1,0 +1,25 @@
+
+
+class SocialDashboardApi {
+    constructor() {
+      this.API_URL = 'http://localhost:3000/api/';
+      this.api = axios.create({
+        baseURL: this.API_URL
+      });
+      this.headers = {
+        headers: {
+          'Accept': 'application/json'
+        }
+      }
+    }
+
+    getStatsArtists() {
+      return this.api.get('stats/top-artist-genres', this.headers)
+      .then(response => {
+          return Promise.resolve(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+}

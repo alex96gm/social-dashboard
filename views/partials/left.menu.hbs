@@ -1,13 +1,19 @@
 <div class="col-1 menu-artists h-100">
     <div class="menu-artists-container">
         {{#actions_button_menu  path}}
-            <div>
+            <div >
                 <a href="/artists">
                     <i class="fas fa-users"></i>
                 </a>
             </div>
-            <div>
-                <a href="/artists/stats">
+            <div >
+                {{!-- <form method="get" action="/artists/stats">
+                    <button type="submit" class="button-artists-stats">
+                         <i class="fas fa-chart-area"></i>
+                    </button>
+                   
+                </form> --}}
+                <a class="button-artists-stats" href="/artists/stats">
                     <i class="fas fa-chart-area"></i>
                 </a>
             </div>
