@@ -8,7 +8,7 @@ const authMiddleware = require('../middlewares/auth.middleware');
 router.get('/', authMiddleware.userNotAuthenticated, loginController.render);
 router.get('/logout', loginController.delete);
 
-router.post('/spotify', passport.authenticate('spotify-auth', {scope: [
+router.post('/spotify', authMiddleware.userNotAuthenticated, passport.authenticate('spotify-auth', {scope: [
     'user-read-email', 
     'user-read-private',
     'user-read-recently-played',
