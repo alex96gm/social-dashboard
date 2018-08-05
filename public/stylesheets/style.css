@@ -67,7 +67,7 @@
 .user-navbar {
   display: flex;
   justify-content: space-between;
-  padding-right: 100px;
+  margin-right: 100px;
   position: relative; }
   .user-navbar .user-navbar-url {
     display: flex;
@@ -118,15 +118,11 @@
   border: none;
   color: white;
   background-color: black;
-  outline: none; }
+  outline: none;
+  text-decoration: none; }
   .button-navbar:hover {
-    color: #57B55F; }
-
-.home-container {
-  background-image: url("../../images/background-home.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background: linear-gradient(to bottom left, #EA2880, #FFC870); }
+    color: #57B55F;
+    text-decoration: none; }
 
 .top-artists-container {
   width: 100%;
@@ -277,6 +273,136 @@
   .stats-container .firt-chart {
     display: flex;
     padding-bottom: 15px; }
+
+.home-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-image: url("../../images/background-home.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: linear-gradient(to bottom left, #EA2880, #FFC870);
+  padding-top: 75px;
+  display: flex;
+  justify-content: center; }
+  .home-container .container-data-home {
+    background-image: linear-gradient(90deg, #EA2880, #FFC870);
+    display: flex;
+    width: 100%;
+    height: 100%; }
+    .home-container .container-data-home .container-data-home-back {
+      flex: 1 1 auto;
+      width: 100%;
+      height: 100%;
+      padding: 50px;
+      background-image: linear-gradient(transparent, #000); }
+      .home-container .container-data-home .container-data-home-back .container-music-recomendations {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+        height: 100%; }
+        .home-container .container-data-home .container-data-home-back .container-music-recomendations h1 {
+          color: white;
+          text-align: center; }
+      .home-container .container-data-home .container-data-home-back .container-music-releases {
+        display: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+        height: 100%; }
+        .home-container .container-data-home .container-data-home-back .container-music-releases h1 {
+          color: white;
+          text-align: center; }
+  .home-container .menu-right-home {
+    flex: 2 2 auto;
+    width: 100%;
+    height: 100%; }
+    .home-container .menu-right-home .menu-right-home-top {
+      cursor: pointer;
+      background: linear-gradient(to bottom left, #783a8a, #2B2B58);
+      box-shadow: inset 0px 0px 100px -1px rgba(0, 0, 0, 0.75);
+      padding: 100px 30px 30px 30px;
+      width: 100%;
+      height: 50%;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column; }
+      .home-container .menu-right-home .menu-right-home-top .text-home {
+        color: white; }
+    .home-container .menu-right-home .menu-right-home-bottom {
+      cursor: pointer;
+      background: linear-gradient(to top left, #8BA1C0, #4A6FA5);
+      padding: 100px 30px 30px 30px;
+      width: 100%;
+      height: 50%;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column; }
+      .home-container .menu-right-home .menu-right-home-bottom .text-home {
+        color: white; }
+
+#carousel {
+  position: relative;
+  height: 400px;
+  top: 50%;
+  overflow: hidden; }
+  #carousel div {
+    position: absolute;
+    transition: transform 1s, left 1s, opacity 1s, z-index 0s;
+    opacity: 1; }
+    #carousel div img {
+      width: 400px;
+      transition: width 1s; }
+    #carousel div.hideLeft {
+      left: 0%;
+      opacity: 0;
+      transform: translateY(50%) translateX(-50%); }
+      #carousel div.hideLeft img {
+        width: 200px; }
+    #carousel div.hideRight {
+      left: 100%;
+      opacity: 0;
+      transform: translateY(50%) translateX(-50%); }
+      #carousel div.hideRight img {
+        width: 200px; }
+    #carousel div.prev {
+      z-index: 5;
+      left: 30%;
+      transform: translateY(50px) translateX(-50%); }
+      #carousel div.prev img {
+        width: 300px; }
+    #carousel div.prevLeftSecond {
+      z-index: 4;
+      left: 15%;
+      transform: translateY(50%) translateX(-50%);
+      opacity: .7; }
+      #carousel div.prevLeftSecond img {
+        width: 200px; }
+    #carousel div.selected {
+      z-index: 10;
+      left: 50%;
+      transform: translateY(0px) translateX(-50%); }
+    #carousel div.next {
+      z-index: 5;
+      left: 70%;
+      transform: translateY(50px) translateX(-50%); }
+      #carousel div.next img {
+        width: 300px; }
+    #carousel div.nextRightSecond {
+      z-index: 4;
+      left: 85%;
+      transform: translateY(50%) translateX(-50%);
+      opacity: .7; }
+      #carousel div.nextRightSecond img {
+        width: 200px; }
+
+.buttons {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px; }
 
 @font-face {
   font-family: 'Circular Std Black';

@@ -21,7 +21,8 @@ module.exports.postRender = (req, res, next) => {
             },[]).slice(0,5)                     
             return serviceSpotify.getRecomendationsAndReleases(result[0].accessToken, result[0].refreshToken, artistsIds)
             .then((results)=>{
-                res.render('home',{recomendations:results.recomendations,releases:results.releases});
+                console.log(results.releases[0].images[0].url);
+                res.render('home',{recomendations:results.recomendations.slice(0,6),releases:results.releases.slice(0,6)});
             })      
         }).catch(error => next(error));
 }

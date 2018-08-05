@@ -11,7 +11,7 @@
 .user-navbar{   
     display: flex;
     justify-content: space-between;
-    padding-right: 100px;
+    margin-right: 100px;
     position: relative;
     .user-navbar-url{
         display: flex;
@@ -73,7 +73,9 @@
     color: white;
     background-color:black;
     outline:none;
+    text-decoration: none;
     &:hover{
         color:$greenSpotify;
+        text-decoration: none;
     }
 }

@@ -1,9 +1,23 @@
-<div class="home-container container-page">
-    <h1>{{releases.0.name}}</h1>
-    <h1>{{releases.0.name}}</h1>
-    <h1>{{releases.0.name}}</h1>
-    <h1>{{releases.0.name}}</h1>
-    <h1>{{releases.0.name}}</h1>
-    <h1>{{releases.0.name}}</h1>
-    <h1>{{releases.0.name}}</h1>
+<div class="home-container">
+    <div class="container-data-home">
+        <div class="container-data-home-back">
+            {{> recomendations }}
+            {{> releases }}  
+        </div>
+    </div>
+    <div class="menu-right-home">
+        <div class="menu-right-home-top">
+                <h1 class="text-home">Recomendaciones</h1>
+                <h2 class="text-home">Canciones a partir de tus artistas favoritos</h2>
+        </div>
+        <div class="menu-right-home-bottom">
+            <h1 class="text-home">Busca nueva música</h1>
+            <h2 class="text-home">Nuevos releases de esta semana</h2>
+        </div>
+    </div>
+
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="/javascripts/carousel-home.js"></script>
