@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    hoverUser();
     clickUser();
 });
 
@@ -8,22 +7,14 @@ const Selectors = {
 };
 const $userBar = $(Selectors.UserBar);
 
-function hoverUser() {
-
-    $userBar.hover(
-        function () {
-            $('.infoUser').show();
-        },
-        function () {
-            $('.infoUser').hide();
-        }
-    );
-}
 function clickUser() {
     $userBar.on("click", function () {
-        $('.infoUser').hide();
+        $('.infoUser').toggle();
     });
 }
+
+
+
 
 
 
