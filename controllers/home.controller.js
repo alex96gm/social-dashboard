@@ -21,7 +21,7 @@ module.exports.postRender = (req, res, next) => {
                 return acc;
             },[]).slice(0,5)   
             console.error('artistsIds' + artistsIds);                  
-            serviceSpotify.getRecomeresultsndationsAndReleases(result[0].accessToken, result[0].refreshToken, artistsIds)
+            serviceSpotify.getRecomendationsAndReleases(result[0].accessToken, result[0].refreshToken, artistsIds)
                 .then((results)=>{
                     res.render('home',{recomendations:results.recomendations.slice(0,6),releases:results.releases.slice(0,6)});
                 })      
