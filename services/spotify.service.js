@@ -25,7 +25,7 @@ spotifyApi.getData = (accessToken, refreshToken) => {
 }
 
 spotifyApi.getRecomendationsAndReleases = (accessToken, refreshToken, arrayOfArtistsSeed) => {
-    // spotifyApi.setAccessToken(accessToken);
+    spotifyApi.setAccessToken(accessToken);
     return Promise.all([
         spotifyApi.getRecommendations({limit:10,seed_artists: arrayOfArtistsSeed}),
         spotifyApi.getNewReleases({limit:10})

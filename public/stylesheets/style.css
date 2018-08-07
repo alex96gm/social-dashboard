@@ -206,6 +206,8 @@
       justify-content: space-around; }
       .card-artist .card-artist-info div p {
         margin: 0; }
+        .card-artist .card-artist-info div p .icon-artists {
+          padding-right: 5px; }
 
 .top-songs-container {
   width: 100%;
