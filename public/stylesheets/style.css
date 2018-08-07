@@ -124,6 +124,9 @@
     color: #57B55F;
     text-decoration: none; }
 
+.button-artists, .button-home, .button-songs {
+  padding: 5px 0 5px 0; }
+
 .top-artists-container {
   width: 100%;
   position: absolute;

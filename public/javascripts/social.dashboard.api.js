@@ -2,8 +2,8 @@
 
 class SocialDashboardApi {
     constructor() {
-       //this.API_URL = 'http://localhost:3000/api/';
-      this.API_URL = 'https://social-dashboard-spotify.herokuapp.com/api/';
+      this.API_URL = 'http://localhost:3000/api/';
+      //this.API_URL = 'https://social-dashboard-spotify.herokuapp.com/api/';
       this.api = axios.create({
         baseURL: this.API_URL
       });

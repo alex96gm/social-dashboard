@@ -20,9 +20,9 @@ module.exports.postRender = (req, res, next) => {
                 return acc;
             },[]).slice(0,5)                     
             serviceSpotify.getRecomendationsAndReleases(result[0].accessToken, result[0].refreshToken, artistsIds)
-            .then((results)=>{
-                res.render('home',{recomendations:results.recomendations.slice(0,6),releases:results.releases.slice(0,6)});
-            })      
-            .catch(error => res.render('home'))
+                .then((results)=>{
+                    res.render('home',{recomendations:results.recomendations.slice(0,6),releases:results.releases.slice(0,6)});
+                })      
+                .catch(error => res.render('home'))
         }).catch(error => next(error));
 }
