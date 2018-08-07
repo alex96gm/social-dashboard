@@ -5,7 +5,6 @@ var socialDashboardApi = new SocialDashboardApi();
 window.onload = function () {
     socialDashboardApi.getStatsArtists()
         .then(data => {
-            console.log(data);
             stastGenres(data);
             statsPopularityByArtits(data);
             statsFollowersByArtits(data);

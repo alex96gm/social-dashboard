@@ -11,6 +11,5 @@ hbs.registerHelper('needs_left_menu', (path, options) => {
 });
 
 hbs.registerHelper('actions_button_menu', (path, options) => {
-    console.log(path);
     return path.includes('/artists') ? options.fn(this) : options.inverse(this);
 });

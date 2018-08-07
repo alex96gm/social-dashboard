@@ -39,16 +39,20 @@ module.exports.setup = (passport) => {
                         { new: true })
                         .then((userReturned) => {
                             user = userReturned
+                            _getData(accessToken , refreshToken, user);
                         });
                 } else {
                     user = utilitiesDTO.userParser(profile, accessToken, refreshToken);
                     return user.save()
-                        .then(user => { })
+                        .then(user => {
+                            _getData(accessToken , refreshToken, user);
+                        })
                 }
 
-                return serviceSpotify.getData(accessToken, refreshToken, user)
+                function _getData(accessToken , refreshToken, user){
+                    return serviceSpotify.getData(accessToken, refreshToken, user)
                     .then((results) => {
-
+                        
                         let artists = utilitiesDTO.topArtistParser(results[0], user);
                         let songs = utilitiesDTO.topSongParser(results[1], user);
                         
@@ -59,7 +63,7 @@ module.exports.setup = (passport) => {
                                 next(null, user);    
                         })
                     })
-
+                }
             })
             .catch(error => next(error));
     }

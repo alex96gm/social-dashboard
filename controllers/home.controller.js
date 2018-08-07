@@ -9,21 +9,19 @@ module.exports.postRender = (req, res, next) => {
     let id = req.user._id;
     return Promise.all([
         User.findOne({ _id: id }),
-        TopArtists.aggregate([ 
-            { $project : {topArtists:
-                { artistId : 1 ,} }
-            } ]).sort({createdAt:-1}).limit(1)
+        TopArtists.find({userId : id}).sort({createdAt:-1}).limit(1)
         ])
         .then((result)=>{
-            console.error('result promise: ', result[1][0]); 
-            let artistsIds = result[1][0].topArtists.filter((artist, index) => index < 5).map(artist => artist.artistId)   
-            console.error('artistsIds --> ', artistsIds);                  
+            let artistsIds = result[1][0].topArtists.filter((artist, index) => index < 5).map(artist => artist.artistId)                 
             serviceSpotify.getRecomendationsAndReleases(result[0].accessToken, result[0].refreshToken, artistsIds)
                 .then((results)=>{
-                    res.render('home',{recomendations:results.recomendations.slice(0,6),releases:results.releases.slice(0,6)});
+                    if(results.recomendations){
+                        res.render('home',{recomendations:results.recomendations.slice(0,6), releases:results.releases.slice(0,6)});
+                    }else{
+                        res.render('home',{recomendations:null, releases:results.releases.slice(0,6)});
+                    }
                 })      
                 .catch(error => {
-                    console.error(error);
                     res.render('home')
                 });
         }).catch(error => next(error));
