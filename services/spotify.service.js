@@ -13,6 +13,7 @@ const spotifyApi = new SpotifyWebApi({
 
 spotifyApi.getData = (accessToken, refreshToken) => {
     spotifyApi.setAccessToken(accessToken);
+    spotifyApi.setRefreshToken(refreshToken);
     return Promise.all([
         spotifyApi.getMyTopArtists(OPTIONS_TOP_ARTISTS_SONGS),
         spotifyApi.getMyTopTracks(OPTIONS_TOP_ARTISTS_SONGS)
@@ -24,8 +25,9 @@ spotifyApi.getData = (accessToken, refreshToken) => {
         });
 }
 
+
 spotifyApi.getRecomendationsAndReleases = (accessToken, refreshToken, arrayOfArtistsSeed) => {
-    spotifyApi.setAccessToken(accessToken);
+    setAccesRefreshToken(accessToken,refreshToken);
     return Promise.all([
         spotifyApi.getRecommendations({limit:10,seed_artists: arrayOfArtistsSeed}),
         spotifyApi.getNewReleases({limit:10})
@@ -35,5 +37,9 @@ spotifyApi.getRecomendationsAndReleases = (accessToken, refreshToken, arrayOfArt
         });
 }
 
+function setAccesRefreshToken(accessToken, refreshToken){
+    spotifyApi.setAccessToken(accessToken);
+    spotifyApi.setRefreshToken(refreshToken);
+}
 
 module.exports = spotifyApi;
