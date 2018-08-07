@@ -15,7 +15,7 @@ module.exports.postRender = (req, res, next) => {
             } ]).sort({createdAt:-1}).limit(1)
         ])
         .then((result)=>{
-            console.error('result promise: '+ result[1][0]); 
+            console.error('result promise: ', result[1][0]); 
             let artistsIds = result[1][0].topArtists.filter((artist, index) => index < 5).map(artist => artist.artistId)   
             console.error('artistsIds --> ', artistsIds);                  
             serviceSpotify.getRecomendationsAndReleases(result[0].accessToken, result[0].refreshToken, artistsIds)
