@@ -277,7 +277,10 @@
   flex-direction: column; }
   .stats-container .firt-chart {
     display: flex;
+    justify-content: center;
     padding-bottom: 15px; }
+  .stats-container #artists-by-followers {
+    padding-top: 15px; }
 
 .home-container {
   height: 100%;

@@ -23,6 +23,9 @@ module.exports.postRender = (req, res, next) => {
                 .then((results)=>{
                     res.render('home',{recomendations:results.recomendations.slice(0,6),releases:results.releases.slice(0,6)});
                 })      
-                .catch(error => res.render('home'))
+                .catch(error => {
+                    console.error(error);
+                    res.render('home')
+                });
         }).catch(error => next(error));
 }

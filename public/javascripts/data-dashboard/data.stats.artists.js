@@ -5,10 +5,87 @@ var socialDashboardApi = new SocialDashboardApi();
 window.onload = function () {
     socialDashboardApi.getStatsArtists()
         .then(data => {
+            console.log(data);
             stastGenres(data);
             statsPopularityByArtits(data);
-
+            statsFollowersByArtits(data);
         });
+}
+
+function statsFollowersByArtits(data) {
+    let arrayFollowers = data[0].topArtists.reduce((acc, item) => {
+        acc.push([
+            item.artistName,
+            Number(item.artistFollowers)
+        ]);
+        return acc;
+    }, []);
+
+    Highcharts.chart('artists-by-followers', {
+        chart: {
+            type: 'column',
+            borderWidth: 2,
+            borderRadius: 10,
+            borderColor:'white',
+            style: {
+                fontFamily: 'Circular Std Black'
+            },
+            backgroundColor:'transparent',
+            style: {
+                fontFamily: 'Circular Std Black'
+            }
+
+        },
+        colorAxis:{
+            gridLineColor:'#000000'
+        },
+        title: {
+            text: 'Artistas por followers',
+            style:{ "color": "white" }
+        },
+        xAxis: {
+            labels: {
+                style: {
+                    color:'white'
+                }
+            },
+            type: 'category',
+        },
+        yAxis: {
+            labels: {
+                style: {
+                    color:'white'
+                }
+            },
+            max: 30000000,
+            min: 0,
+            title: {
+                text: 'Followers',
+                style: {
+                    color:'white'
+                }
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.1f}'
+                }
+            }
+        },
+        "series": [
+            {
+                "name": "Popularidad",
+                "colorByPoint": true,
+                "data": arrayFollowers
+            }
+        ]
+    });
 }
 
 function statsPopularityByArtits(data) {
@@ -29,13 +106,7 @@ function statsPopularityByArtits(data) {
             style: {
                 fontFamily: 'Circular Std Black'
             },
-            backgroundColor: {
-                linearGradient: { x1: 1, x2: 0},
-                stops: [
-                    [0, '#4B2A63'],
-                    [1, '#265487']
-                ]
-            },
+            backgroundColor:'transparent',
             style: {
                 fontFamily: 'Circular Std Black'
             }
@@ -122,13 +193,7 @@ function stastGenres(data) {
             style: {
                 fontFamily: 'Circular Std Black'
             },
-            backgroundColor: {
-                linearGradient: { x1: 1, x2: 0},
-                stops: [
-                    [0, '#383F75'],
-                    [1, '#265487']
-                ]
-            },
+            backgroundColor:'transparent',
         },
         plotOptions: {
             pie: {

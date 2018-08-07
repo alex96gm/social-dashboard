@@ -4,8 +4,12 @@
     flex-direction: column;  
     .firt-chart{
         display: flex;
+        justify-content: center;
         padding-bottom: 15px;
     }
     .third-chart{
+    }
+    #artists-by-followers{
+        padding-top: 15px;
     }
 }
