@@ -28,14 +28,14 @@ spotifyApi.getData = (accessToken, refreshToken) => {
 
 spotifyApi.getRecomendationsAndReleases = (accessToken, refreshToken, arrayOfArtistsSeed) => {
     setAccesRefreshToken(accessToken,refreshToken);
-    console.error('Array:' + arrayOfArtistsSeed);
+    console.error('Array --> ', arrayOfArtistsSeed);
     return Promise.all([    
         spotifyApi.getRecommendations({limit:10, seed_artists: arrayOfArtistsSeed}),
         spotifyApi.getNewReleases({limit:10})
     ])
     .then(results => {
-            return {recomendations: results[0].body.tracks, releases:results[1].body.albums.items};
-        });
+        return {recomendations: results[0].body.tracks, releases:results[1].body.albums.items};
+    });
 }
 
 function setAccesRefreshToken(accessToken, refreshToken){
