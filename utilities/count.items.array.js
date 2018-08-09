@@ -1,4 +1,4 @@
-module.exports = (original) =>{
+function compressArray(original) {
 
     var compressed = [];
     // make a copy of the input array

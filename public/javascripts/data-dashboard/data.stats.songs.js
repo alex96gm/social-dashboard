@@ -1,9 +1,7 @@
-
-
 var socialDashboardApi = new SocialDashboardApi();
 
 window.onload = function () {
-    
+
     Highcharts.setOptions({
         colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
             return {
@@ -20,104 +18,82 @@ window.onload = function () {
         })
     });
 
-    socialDashboardApi.getStatsArtists()
+    socialDashboardApi.getStatsSongs()
         .then(data => {
-            stastGenres(data);
-            statsPopularityByArtits(data);
-            statsFollowersByArtits(data);
+            console.log(data)
+            countArtistsBySongs(data);
+            countAlbumsBySongs(data);
+            songsByDuration(data);
+            songsByPopularity(data);
+            
         });
 }
 
-function statsFollowersByArtits(data) {
-    let arrayFollowers = data[0].topArtists.reduce((acc, item) => {
-        acc.push([
-            item.artistName,
-            Number(item.artistFollowers)
-        ]);
+function countAlbumsBySongs(data) {
+    let arrayAlbums = data[0].topSongs.reduce((acc, item) => {
+        acc = acc.concat(item.songAlbum.songAlbumName); 
         return acc;
     }, []);
 
-    Highcharts.chart('artists-by-followers', {
+    let arrayAlbumsToChart = [];
+    let albumList = compressArray(arrayAlbums).sort((item1, item2) => {
+        return item2.count - item1.count;
+    }).slice(0, 10)
+    albumList.forEach(album => {
+        arrayAlbumsToChart.push([album.value, album.count]);
+    });
+
+    Highcharts.chart('count-albumes-by-songs', {
         chart: {
-            type: 'column',
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie',
             borderWidth: 2,
-            borderRadius: 10,
             borderColor:'white',
+            borderRadius: 10,
             style: {
                 fontFamily: 'Circular Std Black'
             },
             backgroundColor:'transparent',
-            style: {
-                fontFamily: 'Circular Std Black'
-            }
-
-        },
-        colorAxis:{
-            gridLineColor:'#000000'
         },
         title: {
-            text: 'Artistas por followers',
+            text: 'Álbumes más escuchados',
             style:{ "color": "white" }
         },
-        xAxis: {
-            labels: {
-                style: {
-                    color:'white'
-                }
-            },
-            type: 'category',
-        },
-        yAxis: {
-            labels: {
-                style: {
-                    color:'white'
-                }
-            },
-           
-            // breaks:[{
-            //     from:0,
-            //     repeat:10,
-            //     to:3000000
-            // }],
-            title: {
-                text: 'Followers',
-                style: {
-                    color:'white'
-                }
+        labels:{
+            style:{
+                color: 'white'
             }
-        },
-        legend: {
-            enabled: false
         },
         plotOptions: {
-            series: {
-                borderWidth: 0,
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
                 dataLabels: {
                     enabled: true,
-                    format: '{point.y:.1f}'
+                    format: '{point.name}'
                 }
             }
         },
-        "series": [
-            {
-                "name": "Popularidad",
-                "colorByPoint": true,
-                "data": arrayFollowers
-            }
-        ]
+        series: [{
+            name: 'Nº Canciones',
+            data: arrayAlbumsToChart
+        }]
     });
 }
 
-function statsPopularityByArtits(data) {
-    let arrayPopularity = data[0].topArtists.reduce((acc, item) => {
+function songsByPopularity(data) {
+    let arrayDuration = data[0].topSongs.reduce((acc, item) => {
         acc.push([
-            item.artistName,
-            Number(item.artistPopularity)
+            item.songName,
+            Number(item.songPopularity)
         ]);
         return acc;
     }, []);
 
-    Highcharts.chart('artists-by-popularity', {
+    Highcharts.chart('songs-by-popularity', {
         chart: {
             type: 'column',
             borderWidth: 2,
@@ -136,7 +112,7 @@ function statsPopularityByArtits(data) {
             gridLineColor:'#000000'
         },
         title: {
-            text: 'Artistas por popularidad',
+            text: 'Canciones por popularidad',
             style:{ "color": "white" }
         },
         xAxis: {
@@ -156,7 +132,7 @@ function statsPopularityByArtits(data) {
             max: 100,
             min: 0,
             title: {
-                text: 'Popularidad %',
+                text: 'Popularidad',
                 style: {
                     color:'white'
                 }
@@ -178,35 +154,112 @@ function statsPopularityByArtits(data) {
             {
                 "name": "Popularidad",
                 "colorByPoint": true,
-                "data": arrayPopularity
+                "data": arrayDuration
+            }
+        ]
+    });
+
+}
+function songsByDuration(data) {
+    let arrayDuration = data[0].topSongs.reduce((acc, item) => {
+        acc.push([
+            item.songName,
+            ((item.songDuration)/1000)/60
+        ]);
+        return acc;
+    }, []);
+
+    Highcharts.chart('songs-by-duration', {
+        chart: {
+            type: 'column',
+            borderWidth: 2,
+            borderRadius: 10,
+            borderColor:'white',
+            style: {
+                fontFamily: 'Circular Std Black'
+            },
+            backgroundColor:'transparent',
+            style: {
+                fontFamily: 'Circular Std Black'
+            }
+
+        },
+        colorAxis:{
+            gridLineColor:'#000000'
+        },
+        title: {
+            text: 'Canciones por duración',
+            style:{ "color": "white" }
+        },
+        xAxis: {
+            labels: {
+                style: {
+                    color:'white'
+                }
+            },
+            type: 'category',
+        },
+        yAxis: {
+            labels: {
+                style: {
+                    color:'white'
+                }
+            },
+            max: 10,
+            min: 0,
+            title: {
+                text: 'Duración (en minutos)',
+                style: {
+                    color:'white'
+                }
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.1f}'
+                }
+            }
+        },
+        "series": [
+            {
+                "name": "Popularidad",
+                "colorByPoint": true,
+                "data": arrayDuration
             }
         ]
     });
 }
 
-function stastGenres(data) {
-    let arrayGenres = data[0].topArtists.reduce((acc, item) => {
-        acc = acc.concat(item.artistGenres);
+function countArtistsBySongs (data){
+
+    let arraySongs = data[0].topSongs.reduce((acc, item) => {
+        item.songArtists.forEach(artists => {
+            acc = acc.concat(artists.name); 
+        });
         return acc;
     }, []);
-
-    var genresList = compressArray(arrayGenres).sort((item1, item2) => {
+    let arraySongsToChart = [];
+    let songsList = compressArray(arraySongs).sort((item1, item2) => {
         return item2.count - item1.count;
-    }).slice(0, 10);
-
-    var mySeries = [];
-    genresList.forEach(element => {
-        mySeries.push([element.value, element.count]);
+    }).slice(0, 10)
+    songsList.forEach(song => {
+        arraySongsToChart.push([song.value, song.count]);
     });
 
-    var chart = Highcharts.chart('firtsChart', {
+    
+    // Build the chart
+    Highcharts.chart('count-artists-by-songs', {
         chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
             type: 'pie',
-            options3d: {
-                enabled: true,
-                alpha: 45,
-                beta: 0
-            },
             borderWidth: 2,
             borderColor:'white',
             borderRadius: 10,
@@ -214,6 +267,15 @@ function stastGenres(data) {
                 fontFamily: 'Circular Std Black'
             },
             backgroundColor:'transparent',
+        },
+        title: {
+            text: 'Artistas más escuchados',
+            style:{ "color": "white" }
+        },
+        labels:{
+            style:{
+                color: 'white'
+            }
         },
         plotOptions: {
             pie: {
@@ -226,22 +288,11 @@ function stastGenres(data) {
                 }
             }
         },
-        title: {
-            text: 'Géneros mas escuchados',
-            style:{ "color": "white" }
-        },
-        labels:{
-            style:{
-                color: 'white'
-            }
-        },
         series: [{
-            type: 'pie',
-            name: 'Browser share',
-            data: mySeries
+            name: 'Nº Canciones',
+            data: arraySongsToChart
         }]
     });
-
 }
 
 function compressArray(original) {

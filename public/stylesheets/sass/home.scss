@@ -35,7 +35,6 @@
             }
             .container-music-releases{
                 display: none;
-                display: flex;
                 flex-direction: column;
                 justify-content: space-around;
                 width: 100%;
@@ -160,6 +159,7 @@
     transform: translateX(-50%);
     bottom: 10px;
 }
+
   
 
 

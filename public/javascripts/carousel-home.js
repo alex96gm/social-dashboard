@@ -72,6 +72,6 @@ function listenersClickHome(){
     $( ".menu-right-home-top" ).css('box-shadow', 'none');
     $( ".container-music-recomendations" ).hide( "slow", function() {});
     $( ".container-music-releases" ).show( "slow", function() {});
-    $( ".container-music-releases" ).css('display:flex;');
+    $( ".container-music-releases" ).css('display','flex');
   });
 }
