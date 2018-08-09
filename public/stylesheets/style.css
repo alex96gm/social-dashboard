@@ -277,9 +277,12 @@
   flex-direction: column; }
   .stats-container .firt-chart {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     padding-bottom: 15px; }
   .stats-container #artists-by-followers {
+    padding-top: 15px; }
+  .stats-container #songs-by-popularity {
     padding-top: 15px; }
 
 .home-container {
@@ -315,7 +318,6 @@
           text-align: center; }
       .home-container .container-data-home .container-data-home-back .container-music-releases {
         display: none;
-        display: flex;
         flex-direction: column;
         justify-content: space-around;
         width: 100%;
@@ -420,6 +422,9 @@
 
 body {
   font-family: 'Circular Std Black' !important; }
+
+.highcharts-credits {
+  display: none; }
 
 .container-page {
   height: 100%;
