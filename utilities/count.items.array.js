@@ -1,4 +1,4 @@
-function compressArray(original) {
+module.exports.countIntemArray = (original) => {
 
     var compressed = [];
     // make a copy of the input array

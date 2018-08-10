@@ -33,4 +33,35 @@ class SocialDashboardApi {
           console.error(error);
         });
     }
+
+    getGlobalSongsData() {
+      return this.api.get('stats/global-songs-albumes', this.headers)
+      .then(response => {
+          return Promise.resolve(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+
+    getGlobalSongsDataArtists() {
+      return this.api.get('stats/global-songs-artists', this.headers)
+      .then(response => {
+          return Promise.resolve(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+
+    getGlobalArtistsGenres() {
+      return this.api.get('stats/global-artists-genres', this.headers)
+      .then(response => {
+          return Promise.resolve(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+
 }

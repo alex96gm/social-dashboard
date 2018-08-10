@@ -285,6 +285,9 @@
   .stats-container #songs-by-popularity {
     padding-top: 15px; }
 
+.class-height {
+  height: 1000px; }
+
 .home-container {
   height: 100%;
   width: 100%;
@@ -425,6 +428,9 @@ body {
 
 .highcharts-credits {
   display: none; }
+
+.padding-top-15-chart {
+  padding-top: 15px; }
 
 .container-page {
   height: 100%;
