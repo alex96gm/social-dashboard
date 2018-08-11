@@ -133,6 +133,13 @@
             z-index: 10;
             left: 50%;
             transform: translateY(0px) translateX(-50%);
+            &:hover{
+                .recomendations-info{
+                    display: block;
+                    text-decoration: none;
+                    color: $greenSpotify;
+                }
+            }
         }
         &.next{
             z-index: 5;
@@ -158,6 +165,49 @@
     left: 50%;
     transform: translateX(-50%);
     bottom: 10px;
+}
+
+.recomendations-info{
+    display: none;
+    position: absolute;
+    top:0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.76);
+    padding: 15px;
+    
+   
+
+    .color-info-home{
+        color:$greenSpotify !important;
+        display: flex;
+        justify-content: center;
+    }
+    .artists-info-home{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        
+    }
+    play-in-spotify{    
+        font-size: 100px;
+        h4{
+            margin-top:50px;
+            display: flex;
+            justify-content: center;
+        }
+        a{
+            text-decoration: none;  
+            i{
+                color:$greenSpotify;
+                margin-top:50px;
+                display: flex;
+                justify-content: center;
+            } 
+        }
+        
+    }
+
 }
 
   

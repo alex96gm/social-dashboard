@@ -1,34 +1,131 @@
-
 <div class="container-music-recomendations">
     <h1>Recomendaciones</h1>
     <div class="container-cards-home">
         <div id="carousel">
-            <div class="hideLeft">
+            <div class="hideLeft divclass">
                 <img src="{{recomendations.0.album.images.0.url}}">
+                <info class="recomendations-info">
+                    <h1 class="color-info-home">{{recomendations.0.name}}</h1>
+                    <info-artists class="artists-info-home">
+                        {{#each recomendations.0.artists as | artists|}}
+                        <h3>{{artists.name}}</h3>
+                        {{/each}}
+                    </info-artists>
+                    <play-in-spotify>
+                        <h4>Play in Spotify</h4>
+                        <a href="{{recomendations.0.external_urls.spotify}}" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                        </a>
+                    </play-in-spotify>
+                </info>
             </div>
 
-            <div class="prevLeftSecond">
+            <div class="prevLeftSecond divclass">
                 <img src="{{recomendations.1.album.images.0.url}}">
+                <info class="recomendations-info">
+                    <h1 class="color-info-home">{{recomendations.1.name}}</h1>
+                    <info-artists class="artists-info-home">
+                        {{#each recomendations.1.artists as | artists|}}
+                        <h3>{{artists.name}}</h3>
+                        {{/each}}
+                    </info-artists>
+                    <play-in-spotify>
+                        <h4>Play in Spotify</h4>
+                        <a href="{{recomendations.1.external_urls.spotify}}" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                        </a>
+                    </play-in-spotify>
+                </info>
             </div>
 
-            <div class="prev">
+            <div class="prev divclass">
                 <img src="{{recomendations.2.album.images.0.url}}">
+                <info class="recomendations-info">
+                    <h1 class="color-info-home">{{recomendations.2.name}}</h1>
+                    <info-artists class="artists-info-home">
+                        {{#each recomendations.2.artists as | artists|}}
+                        <h3>{{artists.name}}</h3>
+                        {{/each}}
+                    </info-artists>
+                    <play-in-spotify>
+                        <h4>Play in Spotify</h4>
+                        <a href="{{recomendations.2.external_urls.spotify}}" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                        </a>
+                    </play-in-spotify>
+                </info>
             </div>
 
-            <div class="selected">
+            <div class="selected divclass">
                 <img src="{{recomendations.3.album.images.0.url}}">
+                <info class="recomendations-info">
+                    <h1 class="color-info-home">{{recomendations.3.name}}</h1>
+                    <info-artists class="artists-info-home">
+                        {{#each recomendations.3.artists as | artists|}}
+                        <h3>{{artists.name}}</h3>
+                        {{/each}}
+                    </info-artists>
+                    <play-in-spotify>
+                        <h4>Play in Spotify</h4>
+                        <a href="{{recomendations.3.external_urls.spotify}}" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                        </a>
+                    </play-in-spotify>
+                </info>
             </div>
 
-            <div class="next">
+            <div class="next divclass">
                 <img src="{{recomendations.4.album.images.0.url}}">
+                <info class="recomendations-info">
+                    <h1 class="color-info-home">{{recomendations.4.name}}</h1>
+                    <info-artists class="artists-info-home">
+                        {{#each recomendations.4.artists as | artists|}}
+                        <h3>{{artists.name}}</h3>
+                        {{/each}}
+                    </info-artists>
+                    <play-in-spotify>
+                        <h4>Play in Spotify</h4>
+                        <a href="{{recomendations.4.external_urls.spotify}}" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                        </a>
+                    </play-in-spotify>
+                </info>
             </div>
 
-            <div class="nextRightSecond">
+            <div class="nextRightSecond divclass">
                 <img src="{{recomendations.5.album.images.0.url}}">
+                <info class="recomendations-info">
+                    <h1 class="color-info-home">{{recomendations.5.name}}</h1>
+                    <info-artists class="artists-info-home">
+                        {{#each recomendations.5.artists as | artists|}}
+                        <h3>{{artists.name}}</h3>
+                        {{/each}}
+                    </info-artists>
+                    <play-in-spotify>
+                        <h4>Play in Spotify</h4>
+                        <a href="{{recomendations.5.external_urls.spotify}}" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                        </a>
+                    </play-in-spotify>
+                </info>
             </div>
 
-            <div class="hideRight">
+            <div class="hideRight divclass">
                 <img src="{{recomendations.6.album.images.0.url}}">
+                <info class="recomendations-info">
+                    <h1 class="color-info-home">{{recomendations.6.name}}</h1>
+                    <info-artists class="artists-info-home">
+                        {{#each recomendations.6.artists as | artists|}}
+                        <h3>{{artists.name}}</h3>
+                        {{/each}}
+                    </info-artists>
+                    <play-in-spotify>
+                        <h4>Play in Spotify</h4>
+                        <a href="{{recomendations.6.external_urls.spotify}}" target="_blank">
+                            <i class="fas fa-play-circle"></i>
+                        </a>
+                    </play-in-spotify>
+                </info>
             </div>
 
 
