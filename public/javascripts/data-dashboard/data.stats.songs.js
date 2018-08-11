@@ -20,7 +20,6 @@ window.onload = function () {
 
     socialDashboardApi.getStatsSongs()
         .then(data => {
-            console.log(data)
             countArtistsBySongs(data);
             countAlbumsBySongs(data);
             songsByDuration(data);

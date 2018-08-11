@@ -20,7 +20,6 @@ window.onload = function () {
     socialDashboardApi.getGlobalArtistsGenres()
         .then(data => {
             globalArtistsGenres(data);
-            console.log(data)
         });
 
 }

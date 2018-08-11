@@ -73,13 +73,11 @@ module.exports.getGlobalArtistsDataGenres = (req, res, next) => {
         .then((artists) => {
  
             let arrayArtitstsGenres = []; 
-            console.log(artists);
             artists.forEach(artist => {
                 artist.topArtists.reduce((acc, item) => {
                     arrayArtitstsGenres = arrayArtitstsGenres.concat(item.artistGenres); 
                 }, []);
             });
-            console.log(arrayArtitstsGenres);
             
             let arrayArtitstsList= countItems(arrayArtitstsGenres).sort((item1, item2) => {
                 return item2.count - item1.count;
