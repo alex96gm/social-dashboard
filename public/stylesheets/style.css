@@ -359,7 +359,6 @@
 #carousel {
   position: relative;
   height: 400px;
-  top: 50%;
   overflow: hidden; }
   #carousel div {
     position: absolute;
