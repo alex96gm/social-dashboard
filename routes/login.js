@@ -8,12 +8,15 @@ const authMiddleware = require('../middlewares/auth.middleware');
 router.get('/', authMiddleware.userNotAuthenticated, loginController.render);
 router.get('/logout', loginController.delete);
 
-router.post('/spotify', authMiddleware.userNotAuthenticated, passport.authenticate('spotify-auth', {scope: [
-    'user-read-email', 
-    'user-read-private',
-    'user-read-recently-played',
-    'user-top-read'
-] }),);
+router.post('/spotify', authMiddleware.userNotAuthenticated, passport.authenticate('spotify-auth', {
+    scope: [
+        'user-read-email', 
+        'user-read-private',
+        'user-read-recently-played',
+        'user-top-read'
+    ],
+    showDialog: true
+}),);
 router.get('/:provider/cb', authMiddleware.userNotAuthenticated, loginController.createWithIDPCallback);
 
 
