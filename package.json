@@ -1,5 +1,5 @@
 {
-  "name": "social-dashboard", 
+  "name": "social-dashboard",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -7,22 +7,22 @@
     "dev": "DEBUG=social-dashboard:* nodemon -e hbs,js,sass --inspect ./bin/www"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "dotenv": "^6.0.0",
     "express": "~4.16.0",
     "express-session": "^1.15.6",
-    "hbs": "~4.0.1",
-    "highcharts": "^6.1.1",
+    "hbs": "^4.1.1",
+    "highcharts": "^8.2.0",
     "http-errors": "~1.6.2",
-    "mongoose": "^5.2.5",
-    "morgan": "~1.9.0",
+    "mongoose": "^5.10.6",
+    "morgan": "^1.9.1",
     "node-sass-middleware": "0.11.0",
-    "nodemon": "^1.18.3",
+    "nodemon": "^2.0.4",
     "passport": "^0.4.0",
     "passport-spotify": "^1.0.0",
     "path": "^0.12.7",
-    "spotify-web-api-node": "^3.1.1"
+    "spotify-web-api-node": "^4.0.0"
   }
 }
