@@ -18,7 +18,7 @@
     "http-errors": "~1.6.2",
     "mongoose": "^5.10.6",
     "morgan": "^1.9.1",
-    "node-sass-middleware": "0.11.0",
+    "node-sass-middleware": "1.0.1",
     "nodemon": "^2.0.4",
     "passport": "^0.4.0",
     "passport-spotify": "^1.0.0",

@@ -12,7 +12,7 @@
         </div>
         <div class="user-navbar float-right">
           <div class="user-navbar-url" style="cursor: pointer;" href="{{session.userUrl}}" target="_blank">
-            <img src="{{session.images}}">
+            <img src="{{session.images.[0]}}" onerror="this.src='/images/user-default.svg';">
             <h5>Perfil</h5>    
           </div>
           <div class="infoUser float-right">
